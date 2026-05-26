@@ -17,18 +17,18 @@ return new class extends Migration
             $table->string('full_name');
             $table->string('cin_passport')->nullable();
             $table->enum('gender', ['M', 'F'])->nullable();
-            $table->foreignId('fonction_id')->constrained()->onDelete('set null');
-            $table->foreignId('business_unit_id')->constrained()->onDelete('set null');
-            $table->foreignId('nature_id')->constrained()->onDelete('set null');
-            $table->foreignId('post_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignId('fonction_id')->nullable()->constrained('fonctions')->onDelete('set null');
+            $table->foreignId('bu_id')->nullable()->constrained('business_units')->onDelete('set null');
+            $table->foreignId('nature_id')->nullable()->constrained('natures')->onDelete('set null');
+            $table->foreignId('post_id')->nullable()->constrained('posts')->onDelete('set null');
             $table->decimal('daily_rate', 10, 2)->default(0);
-            $table->boolean('is_active')->default(true);
+            $table->boolean('status')->default(true);
             $table->timestamps();
             $table->softDeletes();
             
             // Indexes for performance
-            $table->index(['business_unit_id', 'fonction_id']);
-            $table->index(['nature_id', 'is_active']);
+            $table->index(['bu_id', 'fonction_id']);
+            $table->index(['nature_id', 'status']);
         });
     }
 
