@@ -1,0 +1,63 @@
+```
+# Laravel-specific ignores
+vendor/
+composer.lock
+.env
+.env.*
+!.env.example
+
+# Database
+database/seeds/*.php
+database/factories/*.php
+
+# Build/compiled files
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.out
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+*.log
+logs/
+storage/logs/*
+
+# Cache
+.cache/
+*.cache
+.phpunit.result.cache
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
+# Environment specific
+.env.local
+.env.*.local
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# OS generated
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+```
